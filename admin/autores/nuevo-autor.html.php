@@ -24,36 +24,36 @@
 	                    <div class="row">
 		                    <form action="">
 		                    	
-				               <form class="form-horizontal">
+				               <form class="form-horizontal" action="?newauthor" method="POST">
 								  
 								<div class="form-group">
 								    <label for="inputText3" class="col-sm-2 control-label">nick</label>
 								    <div class="col-sm-10">
-								      <input type="text" class="form-control" id="inputPassword3" placeholder="nick">
+								      <input type="text" class="form-control" name="nombre" placeholder="nick" value="">
 								    </div>
 								  </div>	
 
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 								    <div class="col-sm-10">
-								      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+								      <input type="email" class="form-control" name="email" placeholder="Email" value="">
 								    </div>
 								  </div>
 
 								  <div class="form-group">
 								    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 								    <div class="col-sm-10">
-								      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+								      <input type="password" class="form-control" name="pass" placeholder="Password" value="">
 								    </div>
 								  </div>
 								 
 								 <div class="form-group">
 								 	<label for="radio" class="col-sm-2 control-label">Role</label>
 									<div class="radio-inline">
-									  <label><input type="radio" name="optradio">Administrador</label>
+									  <label><input type="radio" name="role" value="Administrador">Administrador</label>
 									</div>
 									<div class="radio-inline">
-									  <label><input type="radio" name="optradio">Editor</label>
+									  <label><input type="radio" name="role" value="Editor" checked>Editor</label>
 									</div>
 								</div>
 

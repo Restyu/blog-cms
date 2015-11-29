@@ -10,6 +10,21 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 	exit();
 }
 
+if (isset($_GET['newauthor'])) {
+	
+	$nombre = $_POST['nombre'];
+	$email = $_POST['email'];
+	$pass = $_POST['pass'];
+	$role = $_POST['role'];
+		
+		$sql = "INSERT INTO autores (nick, password, email, role) VALUES (:nombre, :email, :pass, :role)";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(':nombre', $nombre);
+		$ps->bindValue(':pass', $pass);
+		$ps->bindValue(':email', $email);
+		$ps->bindValue(':role', $role);
+		$ps->execute();
+}
 
 $sql = 'SELECT * FROM autores order by nick asc';
 

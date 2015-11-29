@@ -26,7 +26,7 @@
 								<div class="form-group">
 								    <label for="inputText3" class="col-sm-2 control-label">categoria</label>
 								    <div class="col-sm-10">
-								      <input type="text" class="form-control" placeholder="nombre de la categoria" value="">
+								      <input type="text" class="form-control" name="categoria" placeholder="nombre de la categoria" value="">
 								    </div>
 								</div>	
 								<div class="form-group">

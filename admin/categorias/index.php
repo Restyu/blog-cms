@@ -10,6 +10,18 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 	exit();
 }
 
+
+
+if (isset($_GET['categorianueva'])) {
+	
+	$categoria = $_POST['categoria'];
+		
+		$sql = "INSERT INTO categories (name) VALUES (:categoria)";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(':categoria', $categoria);
+		$ps->execute();
+}
+
 $sql = 'SELECT * FROM categories order by name asc';
 
 	$ps = $pdo->prepare($sql);
