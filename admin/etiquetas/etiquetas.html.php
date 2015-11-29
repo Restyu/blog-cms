@@ -13,14 +13,31 @@
                             Etiquetas
                             <small>lista</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                       
+                        <table class="table table-striped">
+                            <thead>
+                                <th>id</th>
+                                <th>nombre</th>
+                                <th>F.creada</th>
+                            </thead>
+
+                            <tbody>
+
+                                <?php foreach($tags as $tg): ?>
+                                    
+                                <td><?=$tg['id']?></td>
+                                <td><?=$tg['name']?></td>
+                                <td><?=$tg['created_at']?></td>
+                                
+                                <tr>
+        
+                                <?php endforeach; ?> 
+
+                            </tbody>
+
+                        </table>
+
+                        <a class="btn btn-default" href="<?=$base_url?>admin/etiquetas/?op=new" role="button">Nueva etiqueta</a>
                     </div>
                 </div>
                 <!-- /.row -->
