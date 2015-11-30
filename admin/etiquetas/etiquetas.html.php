@@ -19,6 +19,7 @@
                                 <th>id</th>
                                 <th>nombre</th>
                                 <th>F.creada</th>
+                                <th>borrar / editar</th>
                             </thead>
 
                             <tbody>
@@ -28,7 +29,13 @@
                                 <td><?=$tg['id']?></td>
                                 <td><?=$tg['name']?></td>
                                 <td><?=$tg['created_at']?></td>
-                                
+                                <td>
+                                    <form action="?deletetag" method="post">
+                                        <input type="hidden" name="idtag" value="<?=$tg['id']?>">
+                                        <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                    </form>
+                                </td>
+
                                 <tr>
         
                                 <?php endforeach; ?> 

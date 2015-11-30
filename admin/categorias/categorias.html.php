@@ -19,6 +19,7 @@
                                 <th>id</th>
                                 <th>nombre</th>
                                 <th>F.creada</th>
+                                <th>borrar / editar</th>
                             </thead>
 
                             <tbody>
@@ -28,7 +29,12 @@
                                 <td><?=$cate['id']?></td>
                                 <td><?=$cate['name']?></td>
                                 <td><?=$cate['created_at']?></td>
-                                
+                                <td>
+                                    <form action="?deletecategories" method="post">
+                                        <input type="hidden" name="idcategories" value="<?=$cate['id']?>">
+                                        <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                    </form>
+                                </td>
                                 <tr>
         
                                 <?php endforeach; ?> 

@@ -11,7 +11,6 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 }
 
 
-
 if (isset($_GET['categorianueva'])) {
 	
 	$categoria = $_POST['categoria'];
@@ -20,6 +19,18 @@ if (isset($_GET['categorianueva'])) {
 		$ps = $pdo->prepare($sql);
 		$ps->bindValue(':categoria', $categoria);
 		$ps->execute();
+}
+
+
+if (isset($_GET['deletecategories'])) {
+
+	$id = $_POST['idcategories'];
+
+		$sql = "DELETE FROM categories where id = :idcategories ";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(':idcategories', $id);
+		$ps->execute();
+
 }
 
 $sql = 'SELECT * FROM categories order by name asc';

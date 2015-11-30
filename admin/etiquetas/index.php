@@ -21,6 +21,16 @@ if (isset($_GET['tagsnew'])) {
 		$ps->execute();
 }
 
+if (isset($_GET['deletetag'])) {
+	
+	$id = $_POST['idtag'];
+
+		$sql = "DELETE FROM tags where id = :idtag ";
+		$ps = $pdo->prepare($sql);
+		$ps->bindValue(':idtag', $id);
+		$ps->execute();
+}
+
 $sql = 'SELECT * FROM tags order by name asc';
 
 	$ps = $pdo->prepare($sql);

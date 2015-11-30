@@ -20,6 +20,7 @@
                                 <th>nick</th>
                                 <th>email</th>
                                 <th>role</th>
+                                <th>borrar / actualizar</th>
                             </thead>
 
                             <tbody>
@@ -30,6 +31,12 @@
                                     <td><?=$auto['nick']?></td>
                                     <td><?=$auto['email']?></td>
                                     <td><?=$auto['role']?></td>
+                                    <td>
+                                    <form action="?deleteauthor" method="post">
+                                        <input type="hidden" name="idauthor" value="<?=$auto['id']?>">
+                                        <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                    </form>
+                                </td>
                                     <tr>
         
                                 <?php endforeach; ?> 

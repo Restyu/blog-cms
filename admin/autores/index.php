@@ -26,6 +26,19 @@ if (isset($_GET['newauthor'])) {
 		$ps->execute();
 }
 
+if (isset($_GET['deleteauthor'])) {
+
+	$id = $_POST['idauthor'];
+
+	$sql = 'DELETE FROM autores where id = :idauthor';
+	$ps = $pdo->prepare($sql);
+	$ps->bindValue(':idauthor', $id);
+	$ps->execute();
+
+
+}
+
+
 $sql = 'SELECT * FROM autores order by nick asc';
 
 	$ps = $pdo->prepare($sql);
@@ -38,3 +51,5 @@ while ($row = $ps->fetch(PDO::FETCH_ASSOC) ) {
 
 
 require_once 'autores.html.php';
+
+
