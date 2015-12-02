@@ -1,7 +1,6 @@
 <?php 
     require_once '../templates/header.php';
  ?>
-
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -15,6 +14,7 @@
                         </h1>
                        
                         <table class="table table-striped">
+                           
                             <thead>
                                 <th>id</th>
                                 <th>nick</th>
@@ -32,11 +32,12 @@
                                     <td><?=$auto['email']?></td>
                                     <td><?=$auto['role']?></td>
                                     <td>
-                                    <form action="?deleteauthor" method="post">
-                                        <input type="hidden" name="idauthor" value="<?=$auto['id']?>">
-                                        <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
-                                    </form>
-                                </td>
+                                        <form action="?deleteauthor" method="post">
+                                            <input type="hidden" name="idauthor" value="<?=$auto['id']?>">
+                                            <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                        </form>
+                                    </td>
+
                                     <tr>
         
                                 <?php endforeach; ?> 

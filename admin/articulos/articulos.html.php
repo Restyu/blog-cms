@@ -13,9 +13,45 @@
                             Articulos
                             <small>lista</small>
                         </h1>
-                      
-                      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam illo molestiae dolorem est! Aspernatur quo nihil, deserunt neque expedita distinctio dolorum pariatur at iure totam sunt suscipit nostrum eius provident.</div>
+                     
+                         <table class="table table-striped">
+                           
+                            <thead>
+                                <th>id</th>
+                                <th>autor</th>
+                                <th>title</th>
+                                <th>estado</th>
+                                <th>creado</th>
+                                <th>borrar / actualizar</th>
+                            </thead>
 
+                            <tbody>
+
+                                <?php foreach($posts as $pt): ?>
+                                    
+                                    <td><?=$pt['id']?></td>
+                                    <td><?=$pt['nick']?></td>
+                                    <td><?=$pt['title']?></td>
+                                    <td><?=$pt['state']?></td>
+                                    <td><?=$pt['created_at']?></td>
+                                    <td>
+                                        <form action="?deleteposts" method="post">
+                                            <input type="hidden" name="idposts" value="<?=$pt['id']?>">
+                                            <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                        </form>
+                                    </td>
+
+                                    <tr>
+        
+                                <?php endforeach; ?> 
+
+                            </tbody>
+
+                        </table>
+                        
+                        <a class="btn btn-default" href="<?=$base_url?>admin/articulos/?op=new" role="button">añadir nuevo articulo</a>
+                         
+                     
                     </div>
                 </div>
                 <!-- /.row -->

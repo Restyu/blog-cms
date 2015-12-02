@@ -1,3 +1,42 @@
+<?php 
+
+
+$info['title'] = 'Blog admin';
+
+$activo = [
+          'articulos' => "",
+          'autores' => "",
+          'comments' => "",
+          'categorias' => "",
+          'etiquetas' =>"",
+          ];
+
+$ruta = ['articulos','autores','comments','categorias','etiquetas'];
+
+
+if (strpos($_SERVER['REQUEST_URI'],'articulos') == true) {
+    $activo['articulos'] = 'class="active"';
+    $info['subtitulo'] = ['articulos'];
+
+}else if(strpos($_SERVER['REQUEST_URI'],'autores') == true){
+    $activo['autores'] = 'class="active"';
+    $info['subtitulo'] = ['autores'];
+
+}else if(strpos($_SERVER['REQUEST_URI'],'comments') == true){
+    $activo['comments'] = 'class="active"';
+    $info['subtitulo'] = ['comments'];
+
+}else if(strpos($_SERVER['REQUEST_URI'],'categorias') == true){
+    $activo['categorias'] = 'class="active"';
+    $info['subtitulo'] = ['categorias'];
+
+}else if(strpos($_SERVER['REQUEST_URI'],'etiquetas') == true){
+    $activo['etiquetas'] = 'class="active"';
+    $info['subtitulo'] = ['etiquetas'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,6 +61,9 @@
  
     <!-- Custom Fonts -->
     <link href="<?=$base_url?>/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <!--mis estilos -->
+    <link href="<?=$base_url?>/admin/css/misestilos.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,6 +71,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+   
 
 </head>
 
@@ -46,7 +90,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=$base_url?>">Blog</a>
+                <a class="navbar-brand" href="<?=$base_url?>"> <?=$info['title'] ?> </a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -145,24 +189,20 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     
-                    <li class="active">
+                    <li <?=$activo['autores']?>>
                         <a href="<?=$base_url?>admin/autores">Autores</a>
                     </li>
-                    <li>
+                    <li <?=$activo['articulos']?>>
                         <a href="<?=$base_url?>admin/articulos">Articulos</a>
                     </li>
-                    <li>
-                        <a href="<?=$base_url?>admin/comentarios">Comentarios</a>
+                    <li <?=$activo['comments']?>>
+                        <a href="<?=$base_url?>admin/comments">Comentarios</a>
                     </li>
-                    <li>
+                    <li <?=$activo['categorias']?>>
                         <a href="<?=$base_url?>admin/categorias">Categorias</a>
                     </li>
-                    <li>
+                    <li <?=$activo['etiquetas']?>>
                         <a href="<?=$base_url?>admin/etiquetas">Etiquetas</a>
-                    </li>
-                   
-                    <li>
-                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                     </li>
                     
                 </ul>

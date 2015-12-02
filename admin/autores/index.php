@@ -10,6 +10,7 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 	exit();
 }
 
+// AÑADIR NUEVOS AUTORES
 if (isset($_GET['newauthor'])) {
 	
 	$nombre = $_POST['nombre'];
@@ -26,6 +27,7 @@ if (isset($_GET['newauthor'])) {
 		$ps->execute();
 }
 
+// BORRAR AUTORES
 if (isset($_GET['deleteauthor'])) {
 
 	$id = $_POST['idauthor'];
@@ -35,15 +37,13 @@ if (isset($_GET['deleteauthor'])) {
 	$ps->bindValue(':idauthor', $id);
 	$ps->execute();
 
-
 }
 
-
+// LISTA AUTORES
 $sql = 'SELECT * FROM autores order by nick asc';
 
 	$ps = $pdo->prepare($sql);
 	$ps->execute();
-
 
 while ($row = $ps->fetch(PDO::FETCH_ASSOC) ) {
 	$autor[] = $row;

@@ -10,7 +10,7 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 	exit();
 }
 
-
+// AÑADIR  CATEGORIAS
 if (isset($_GET['categorianueva'])) {
 	
 	$categoria = $_POST['categoria'];
@@ -21,7 +21,7 @@ if (isset($_GET['categorianueva'])) {
 		$ps->execute();
 }
 
-
+// BORRAR CATEGORIAS
 if (isset($_GET['deletecategories'])) {
 
 	$id = $_POST['idcategories'];
@@ -33,11 +33,11 @@ if (isset($_GET['deletecategories'])) {
 
 }
 
+// LISTA CATEGORIAS
 $sql = 'SELECT * FROM categories order by name asc';
 
 	$ps = $pdo->prepare($sql);
 	$ps->execute();
-
 
 while ($row = $ps->fetch(PDO::FETCH_ASSOC) ) {
 	$categorias[] = $row;

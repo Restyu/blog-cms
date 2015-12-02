@@ -11,6 +11,7 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 	exit();
 }
 
+// AÑADIR ETIQUETAS
 if (isset($_GET['tagsnew'])) {
 	
 	$tag = $_POST['tag'];
@@ -21,6 +22,7 @@ if (isset($_GET['tagsnew'])) {
 		$ps->execute();
 }
 
+// BORRAR ETIQUETAS
 if (isset($_GET['deletetag'])) {
 	
 	$id = $_POST['idtag'];
@@ -30,6 +32,7 @@ if (isset($_GET['deletetag'])) {
 		$ps->bindValue(':idtag', $id);
 		$ps->execute();
 }
+
 
 $sql = 'SELECT * FROM tags order by name asc';
 
