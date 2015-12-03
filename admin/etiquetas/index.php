@@ -14,7 +14,7 @@ if (isset($_GET['op']) && $_GET['op'] == "new") {
 // AÑADIR ETIQUETAS
 if (isset($_GET['tagsnew'])) {
 	
-	$tag = $_POST['tag'];
+	$tag =	htmlspecialchars($_POST['tag'],ENT_QUOTES, 'UTF-8');
 		
 		$sql = "INSERT INTO tags (name) VALUES (:tag)";
 		$ps = $pdo->prepare($sql);
@@ -25,12 +25,31 @@ if (isset($_GET['tagsnew'])) {
 // BORRAR ETIQUETAS
 if (isset($_GET['deletetag'])) {
 	
-	$id = $_POST['idtag'];
+	$id = htmlspecialchars($_POST['idtag'],ENT_QUOTES, 'UTF-8');
 
 		$sql = "DELETE FROM tags where id = :idtag ";
 		$ps = $pdo->prepare($sql);
 		$ps->bindValue(':idtag', $id);
 		$ps->execute();
+}
+
+// ACTUALIZAR CATEGORIAS
+if( isset($_GET['edit']) ){
+    
+    $newCatName = htmlspecialchars($_POST['nombre'],ENT_QUOTES, 'UTF-8');
+    $idcat = $_POST['idcat'];
+
+    try{
+        $sql = "UPDATE tags SET name = :nuevonombre, modified_at = NOW() WHERE id = :idcat";
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(':nuevonombre', $newCatName);
+        $ps->bindValue(':idcat', $idcat);
+        $ps->execute();
+    }catch(PDOException $e){
+        die('No se pudo actualizar la tarea. Error: '.$e->getMessage() );
+    }
+    header( 'Location: .');
+    exit();
 }
 
 

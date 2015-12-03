@@ -9,6 +9,15 @@
 }
 
 html{
-	
+
 	background-color: #fff;
 }
+
+/* BOTONES FORMULARIO CATEGORIAS*/
+
+.linea{
+
+	display: inline-block;
+	padding-left: 10px;
+}
+

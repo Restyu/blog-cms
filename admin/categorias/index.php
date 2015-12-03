@@ -33,6 +33,25 @@ if (isset($_GET['deletecategories'])) {
 
 }
 
+// ACTUALIZAR CATEGORIAS
+if( isset($_GET['edit']) ){
+    $newCatName = htmlspecialchars($_POST['nombre'],ENT_QUOTES, 'UTF-8');
+    $idcat = $_POST['idcat'];
+
+    //exit();
+    try{
+        $sql = "UPDATE categories SET name = :nuevonombre, modified_at = NOW() WHERE id = :idcat";
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(':nuevonombre', $newCatName);
+        $ps->bindValue(':idcat', $idcat);
+        $ps->execute();
+    }catch(PDOException $e){
+        die('No se pudo actualizar la tarea. Error: '.$e->getMessage() );
+    }
+    header( 'Location: .');
+    exit();
+}
+
 // LISTA CATEGORIAS
 $sql = 'SELECT * FROM categories order by name asc';
 

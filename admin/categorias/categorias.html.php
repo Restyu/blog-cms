@@ -27,13 +27,30 @@
                                 <?php foreach($categorias as $cate): ?>
                                     
                                 <td><?=$cate['id']?></td>
-                                <td><?=$cate['name']?></td>
-                                <td><?=$cate['created_at']?></td>
+                                
                                 <td>
-                                    <form action="?deletecategories" method="post">
-                                        <input type="hidden" name="idcategories" value="<?=$cate['id']?>">
-                                        <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                    <form action="?edit" method="post">
+                                      <input type="hidden" name="idcat" value="<?=$cate['id']?>">
+                                      <input type="text" id="cate-<?=$cate['id']?>" name="nombre" value="<?=$cate['name']?>" disabled>
+                                      <button type="submit" class="btn btn-link btn-sm listiconbutton">
+                                          <i class="fa fa-check hidden" id="updateok-<?=$cate['id']?>"></i>
+                                      </button>
+                                      <i class="fa fa-times hidden" id="updatenook-<?=$cate['id']?>"></i>
                                     </form>
+                                </td>
+
+                                <td><?=$cate['created_at']?></td>
+
+                                <td>
+                                   <div class="linea">
+                                        <form action="?deletecategories" method="post">
+                                            <input type="hidden" name="idcategories" value="<?=$cate['id']?>">
+                                            <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
+                                        </form>
+                                    </div>
+                                    <div class="linea">
+                                        <i class="fa fa-pencil-square-o" id="updatebutton-<?=$cate['id']?>"></i>
+                                    </div>
                                 </td>
                                 <tr>
         
@@ -66,4 +83,38 @@
 
 </body>
 
+
+   <?php
+
+    if(strpos($_SERVER['REQUEST_URI'],'categorias') ) : ?>
+   
+    <script>
+        $(document).ready(function() {
+        <?php foreach($categorias as $categoria): ?>
+        $('#updatebutton-<?=$categoria['id']?>').click(function () {
+            $('#updateok-<?=$categoria['id']?>').removeClass('hidden');
+            $('#updatenook-<?=$categoria['id']?>').removeClass('hidden');
+            $('#deletebutton-<?=$categoria['id']?>').addClass('hidden');
+            $('#cate-<?=$categoria['id']?>').removeAttr('disabled');
+            $(this).addClass('hidden');
+        });
+
+        $('#updateok-<?=$categoria['id']?>').click(function () {
+            $(this).addClass('hidden');
+        });
+
+        $('#updatenook-<?=$categoria['id']?>').click(function() {
+            $('#categoria-<?=$categoria['id']?>').attr('disabled');
+            $('#updateok-<?=$categoria['id']?>').addClass('hidden');
+            $('#updatebutton-<?=$categoria['id']?>').removeClass('hidden');
+            $('#deletebutton-<?=$categoria['id']?>').removeClass('hidden');
+            $(this).addClass('hidden');
+        });
+        <?php endforeach; ?>
+        });
+    </script>
+
+<?php endif; ?>
+
 </html>
+
