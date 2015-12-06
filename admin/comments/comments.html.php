@@ -18,6 +18,7 @@
                             <thead>
                                 <th>id</th>
                                 <th>nombre</th>
+                                <th>email</th>
                                 <th>F.creada</th>
                                 <th>borrar / editar</th>
                             </thead>
@@ -28,6 +29,7 @@
                                     
                                 <td><?=$cm['id']?></td>
                                 <td><?=$cm['usuario']?></td>
+                                <td><?=$cm['email']?></td>
                                 <td><?=$cm['created_at']?></td>
                                 <td>
                                     <form action="?deletecomments" method="post">

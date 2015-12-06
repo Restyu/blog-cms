@@ -18,6 +18,7 @@
                             <thead>
                                 <th>id</th>
                                 <th>nick</th>
+                                <th>password</th>
                                 <th>email</th>
                                 <th>role</th>
                                 <th>borrar / actualizar</th>
@@ -29,6 +30,7 @@
                                     
                                     <td><?=$auto['id']?></td>
                                     <td><?=$auto['nick']?></td>
+                                    <td><?=$auto['password']?></td>
                                     <td><?=$auto['email']?></td>
                                     <td><?=$auto['role']?></td>
                                     <td>
