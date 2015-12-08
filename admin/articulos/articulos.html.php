@@ -17,11 +17,11 @@
                          <table class="table table-striped">
                            
                             <thead>
-                                <th>id</th>
                                 <th>autor</th>
                                 <th>title</th>
                                 <th>estado</th>
-                                <th>creado</th>
+                                <th>categoria</th>
+                                <th>etiqueta</th>
                                 <th>borrar / actualizar</th>
                             </thead>
 
@@ -29,14 +29,16 @@
 
                                 <?php foreach($posts as $pt): ?>
                                     
-                                    <td><?=$pt['id']?></td>
                                     <td><?=$pt['nick']?></td>
                                     <td><?=$pt['title']?></td>
                                     <td><?=$pt['state']?></td>
-                                    <td><?=$pt['created_at']?></td>
+                                    <td><?=$pt['name']?></td>
+                                    <td><?=$pt['eti']?></td>
                                     <td>
                                         <form action="?deleteposts" method="post">
                                             <input type="hidden" name="idposts" value="<?=$pt['id']?>">
+                                            <input type="hidden" name="idcat" value="<?=$pt['id_catg']?>">
+                                            <input type="hidden" name="idtag" value="<?=$pt['id_tags']?>">
                                             <button type="submit" class="btn btn-link btn-sm listiconbutton"><i class="glyphicon glyphicon-trash"></i></button>
                                         </form>
                                     </td>
@@ -50,8 +52,7 @@
                         </table>
                         
                         <a class="btn btn-default" href="<?=$base_url?>admin/articulos/?op=new" role="button">añadir nuevo articulo</a>
-                         
-                     
+                        
                     </div>
                 </div>
                 <!-- /.row -->
