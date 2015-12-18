@@ -20,6 +20,7 @@
                                 <th>autor</th>
                                 <th>title</th>
                                 <th>estado</th>
+                                <th>F.publicacion</th>
                                 <th>categoria</th>
                                 <th>etiqueta</th>
                                 <th>borrar / actualizar</th>
@@ -32,6 +33,7 @@
                                     <td><?=$pt['nick']?></td>
                                     <td><?=$pt['title']?></td>
                                     <td><?=$pt['state']?></td>
+                                    <td><?=$pt['date_pub']?></td>
                                     <td><?=$pt['name']?></td>
                                     <td><?=$pt['eti']?></td>
                                     <td>

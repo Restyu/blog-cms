@@ -51,6 +51,15 @@
 
 						<div class="col-lg-4">
 							<div class="row">
+							
+								<div class="form-group">
+					                <label for="inputTipo" class="control-label">estado</label>
+					                    <select class="form-control" name="estado">
+					                        <option>estado</option>
+					                        	<option value="draft"  > draft</option>
+					                        	<option value="publicado" > publicado</option>
+					                    </select>  
+					            </div>
 
 							    <div class="form-group">
 					                <label for="inputTipo" class="control-label">categorias</label>
@@ -61,15 +70,6 @@
 					                        <?php endforeach; ?> 
 					                    </select>  
 					            </div>
-
-					            <div class="form-group">
-					                <label for="inputTipo" class="control-label">estado</label>
-					                    <select class="form-control" name="estado">
-					                        <option>estado</option>
-					                        	<option value="draft"  > draft</option>
-					                        	<option value="publicado" > publicado</option>
-					                    </select>  
-					            </div>
 								
 								<div>
 									<label for="">Etiquetas</label>
@@ -77,12 +77,13 @@
 									    <?php foreach($etiquetas as $eti): ?>
 										    <div>
 											    <label>
-											    	<input type="checkbox" name="etiqueta" value="<?=$eti['id']?>"> <?=$eti['name'] ?> 
+											    	<input type="checkbox" name="etiqueta[]" value="<?=$eti['id']?>"> <?=$eti['name'] ?> 
 											    </label>
 										    </div>
 									    <?php endforeach; ?>
 									</div>
 								</div>
+
 							</div>
 						</div>
 						</form>

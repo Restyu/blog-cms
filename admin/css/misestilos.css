@@ -1,11 +1,13 @@
+/* COLOR DE EL SIDEBAR */
 .navbar-inverse  .navbar-collapse{
 
-	background-color: #7fffd4;
+	background-color: #e34b4b;
 }
 
+/* COLOR DEL HEADER */
 .side-nav{
 
-	background-color: #7fffd4;
+	background-color: #e34b4b;
 }
 
 html{
@@ -24,4 +26,13 @@ html{
 .form-autores{
 
 	padding-bottom: 40px;
+}
+
+/* COLOR DE LAS LETRAS */
+.navbar-inverse .navbar-nav>li>a {
+    color: black;
+}
+/* COLOR DEX */
+.navbar-inverse .navbar-brand {
+    color: black;
 }

@@ -50,6 +50,8 @@ if (isset($_GET['addpost'])) {
 	echo "categorias: ".$categoria."<br>";
 	echo "etiqueta: ".$etiqueta."<br>";
 
+	print_r($_POST);
+
 	//SE CREAR EL POST
 	try {
 		
@@ -68,7 +70,7 @@ if (isset($_GET['addpost'])) {
 			die("No se ha podido guardar la tarea en la base de datos:". $e->getMessage());
 		}
 
-	// SE EXTRAE EL ULTIMO ID DEL POST
+	//SE EXTRAE EL ULTIMO ID DEL POST
 	$sql = "SELECT id from posts order by id desc";	
 	$ps = $pdo->prepare($sql);
 	$ps->execute(); 
@@ -78,7 +80,7 @@ if (isset($_GET['addpost'])) {
 	echo "idpost: ".$idposts['id'];
 	$idp = $idposts['id'];
 
-	// SE ASOCIA EL POST CON LA CATEGORIA
+	//SE ASOCIA EL POST CON LA CATEGORIA
 	try {
 
 		$sql = "INSERT INTO post_catg (id_catg , id_post) VALUES (:categoria , :idposts)";
@@ -92,7 +94,7 @@ if (isset($_GET['addpost'])) {
 		die("No se ha podido guardar la tarea en la base de datos:". $e->getMessage());
 	}
 
-	// SE ASOCIA EL POST CON LA ETIQUETA
+	//SE ASOCIA EL POST CON LA ETIQUETA
 	try {
 
 		$sql = "INSERT INTO post_tags (id_tags , id_posts) VALUES (:etiqueta , :idposts)";
@@ -161,7 +163,7 @@ try {
 }
 
 // LISTA ARTICULOS
-$sql = 'SELECT posts.id,autores.nick,posts.title,posts.state,categories.name,tags.name as eti ,post_catg.id_catg,post_tags.id_tags from posts 
+$sql = 'SELECT posts.id,autores.nick,posts.title,posts.state,posts.date_pub,categories.name,tags.name as eti ,post_catg.id_catg,post_tags.id_tags from posts 
 	join autores on autores.id = posts.id_autor 
 	join post_catg on post_catg.id_post = posts.id 
 	join categories on categories.id = post_catg.id_catg 

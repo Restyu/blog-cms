@@ -1,5 +1,4 @@
- 
 <?php
+require_once 'data.php';
 
-	require_once $_SERVER['DOCUMENT_ROOT'].'/blog/app/config.php';
-	require_once 'home/home.html.php';
+header('Location: '.$base_path.'/login');
